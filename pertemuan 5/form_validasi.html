@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Form Validasi</title>
+	<style type="text/css">
+        body {
+            font-family: sans-serif;
+        }
+        
+        .login {
+            padding: 1em;
+            margin: 2em auto;
+            width: 17em;
+            border-radius: 3px;
+        }
+        
+        label {
+            font-size: 10pt;
+        }
+        
+        input[type="text"] , select{
+            padding: 8px;
+            width: 95%;
+            border: 1px solid;
+            font-size: 10pt;
+            margin: 6px 0px;
+        }
+        
+        .tombol {
+            background: #3498db;
+            color: #fff;
+            border: 0;
+            border-radius: 5px;
+            padding: 10px 8px;
+        }
+    </style>
+</head>
+<body>
+	<div class="login">
+		<form action="#" method="POST" onsubmit="return validasi()">
+			<div>
+				<label>Nama</label>
+				<input type="text" name="nama" id="nama" />
+			</div>
+			<div>
+				<label>NRP</label>
+				<input type="text" name="nrp" id="nrp" />
+			</div>
+			<div>
+				<label for="jurusan">Jurusan</label><br>
+                <select id="jurusan" name="jurusan" style="width: 100%">
+	                <option value="">Pilih Jurusan</option>
+	                <option value="teknik_informatika">Teknik Informatika</option>
+	                <option value="sistem_informasi">Sistem Informasi</option>
+	                <option value="teknologi_informasi">Teknologi Informasi</option>
+	                <option value="teknik_komputer">Teknik Komputer</option>
+	                <option value="teknik_biomedik">Teknik Biomedik</option>
+	                <option value="teknik_elektro">Teknik Elektro</option>
+                </select>
+			</div><br>
+			<div>
+				<input type="submit" value="Submit" class="tombol">
+			</div>
+		</form>
+	</div>
+
+<script type="text/javascript">
+	function validasi() {
+		var nama = document.getElementById("nama").value;
+		var nrp = document.getElementById("nrp").value;
+		var jurusan = document.getElementById("jurusan").value;
+
+		if (nama != "" && nrp != "" && jurusan != "") {
+			return true;
+        } else if (nama == "" && nrp == "" && jurusan == "") {
+            alert("Data tidak boleh kosong!");
+            return false;
+        } else if (nama == "" && nrp == "") {
+            alert("Nama dan NRP tidak boleh kosong!");
+            return false;
+        } else if (nama == "" && jurusan == "") {
+            alert("Nama dan Jurusan tidak boleh kosong!");
+            return false;
+        } else if (nrp == "" && jurusan == "") {
+            alert("NRP dan Jurusan tidak boleh kosong!");
+            return false;
+        } else if (nama == "") {
+            alert("Nama tidak boleh kosong!");
+            return false;
+        } else if (nrp == "") {
+            alert("NRP tidak boleh kosong!");
+            return false;
+        } else if (jurusan == "") {
+            alert("Jurusan tidak boleh kosong!");
+            return false;
+        }
+	}
+</script>
+</body>
+</html>

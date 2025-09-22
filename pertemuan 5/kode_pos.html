@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kode Pos</title>
+    <style type="text/css">
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4;
+        }
+        h2 {
+            color: white;
+            background-color: rgb(223, 25, 137);
+            padding: 15px;
+            margin: 0;
+        }
+        .search-box {
+            background: white;
+            width: 70%;              
+            margin: 50px auto;       
+            padding: 20px;
+            border-radius: 6px;      
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2); 
+        }
+        select {
+            width: 30%;
+            height: 35px;
+            margin-bottom: 10px;
+            margin-top: 10px;
+            border-radius: 15px;
+            padding: 5px;
+        }
+        label {
+            font-weight: bold;
+        }
+
+        button {
+            background:#27ae60; 
+            color:white; 
+            border:none; 
+            padding:8px 15px; 
+            border-radius:4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background:#219150;
+        }
+
+        .hasil {
+            width: 70%;
+            margin: 50px auto;
+            display: none;
+        }
+        .hasil h1 {
+            margin-bottom: 10px;
+        }
+        .card {
+            width : 50%;
+            border: 1px solid #d9ead3;
+            border-radius: 6px;
+            overflow: hidden;
+            background: #f9fff9;
+            margin-bottom: 15px;
+        }
+        .card-header {
+            background: #27ae60;
+            color: white;
+            padding: 10px;
+            font-weight: bold;
+        }
+        .card-body {
+            padding: 15px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h2>Kode Pos Indonesia</h2>
+    
+    <div class="search-box">
+        <p>Cari kode pos di wilayah Indonesia berdasarkan provinsi, kota/kabupaten, dan kecamatan</p>
+        <form id="cari">
+            <label for="provinsi">Provinsi</label><br>
+            <select id="provinsi" name="provinsi">
+                <option value="">Pilih Provinsi</option>
+            </select><br>
+
+            <label for="kota">Kota atau Kabupaten</label><br>
+            <select id="kota" name="kota">
+                <option value="">Pilih Kota/Kabupaten</option>
+            </select><br>
+
+            <label for="kecamatan">Kecamatan</label><br>
+            <select id="kecamatan" name="kecamatan">
+                <option value="">Pilih Kecamatan</option>
+            </select><br>
+
+            <button type="submit">Cari</button>
+        </form>
+    </div>
+
+    <div class="hasil" id="hasil">
+        <h1>Hasil Pencarian</h1>
+        <div class="card">
+            <div class="card-header" id="namaWilayah"></div>
+            <div class="card-body" id="detailWilayah"></div>
+        </div>
+    </div>
+
+    <script src="data_kode_pos.js"></script>
+
+    <script>
+        window.addEventListener("DOMContentLoaded", function() {
+            let provSelect = document.getElementById("provinsi");
+            Object.keys(kodeposData).forEach(function(prov) {
+                let opt = document.createElement("option");
+                opt.value = prov;
+                opt.innerText = prov;
+                provSelect.appendChild(opt);
+            });
+        });
+
+        document.getElementById("provinsi").addEventListener("change", function() {
+            let prov = this.value;
+            let kotaSelect = document.getElementById("kota");
+            kotaSelect.innerHTML = '<option value="">Pilih Kota/Kabupaten</option>';
+            document.getElementById("kecamatan").innerHTML = '<option value="">Pilih Kecamatan</option>';
+
+            if(kodeposData[prov]){
+                Object.keys(kodeposData[prov]).forEach(function(kota){
+                    let opt = document.createElement("option");
+                    opt.value = kota;
+                    opt.innerText = kota;
+                    kotaSelect.appendChild(opt);
+                });
+            }
+        });
+
+        document.getElementById("kota").addEventListener("change", function() {
+            let prov = document.getElementById("provinsi").value;
+            let kota = this.value;
+            let kecSelect = document.getElementById("kecamatan");
+            kecSelect.innerHTML = '<option value="">Pilih Kecamatan</option>';
+
+            if(kodeposData[prov] && kodeposData[prov][kota]){
+                Object.keys(kodeposData[prov][kota]).forEach(function(kec){
+                    let opt = document.createElement("option");
+                    opt.value = kec;
+                    opt.innerText = kec;
+                    kecSelect.appendChild(opt);
+                });
+            }
+        });
+
+        document.getElementById("cari").addEventListener("submit", function(e) {
+            e.preventDefault();
+            let prov = document.getElementById("provinsi").value;
+            let kota = document.getElementById("kota").value;
+            let kec = document.getElementById("kecamatan").value;
+
+            if(prov && kota && kec && kodeposData[prov] && kodeposData[prov][kota] && kodeposData[prov][kota][kec]){
+                let data = kodeposData[prov][kota][kec];
+                let hasilDiv = document.getElementById("hasil");
+                hasilDiv.style.display = "block";
+
+                document.getElementById("namaWilayah").innerText = `${kec}, ${kota}, ${prov}`;
+                document.getElementById("detailWilayah").innerHTML = `
+                    Kode Pos: <b>${data.code}</b><br>
+                    ${data.info}`;
+            }
+        });
+    </script>
+</body>
+</html>
