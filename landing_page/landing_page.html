@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Landing Page KBS</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    body { 
+      font-family: 'Roboto', sans-serif;
+      background-color: #fdfdf8;
+    }
+    h2, h3 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      color: #2f5233;
+    }
+
+    .header {
+      position: relative;
+      height: 500px; 
+      background: url('header.png') no-repeat center center/cover;
+    }
+    .header::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.4);
+    }
+    .header .container {
+      position: relative;
+    }
+
+    .benefit, .testi, .detail, .offer, .form, .faq {
+      background: #e8f5e9; 
+      padding: 60px 20px;
+    }
+    .b-ic { font-size: 40px; color: #388e3c; }
+
+    .card { border: none; border-radius: 12px; }
+    .card strong { font-family: 'Poppins', sans-serif; }
+
+    .review-text {
+      text-align: justify;
+      max-height: 90px; 
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .review-text.expanded { max-height: none; }
+    .read-more {
+      font-size: 0.9rem;
+      text-decoration: none;
+      color: #2e7d32;
+      cursor: pointer;
+      font-weight: 500;
+    }
+
+    .accordion-button {
+      background-color: #c8e6c9;
+      color: #2f5233;
+      font-weight: 600;
+    }
+    .accordion-button:not(.collapsed) {
+      background-color: #a5d6a7;
+      color: #1b5e20;
+    }
+    .accordion-body { background-color: #f1f8f1; }
+
+    .btn-main {
+      background-color: #2e7d32;
+      color: #fff;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 24px;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-main:hover {
+      background-color: #1b5e20;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      color: #fff;
+    }
+
+    footer {
+      background: #2f5233; 
+      color: #fff; 
+      padding: 30px 10px;
+    }
+    footer a { color: #a5d6a7; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <section class="header text-center d-flex align-items-center">
+    <div class="container text-white"><br><br><br><br><br><br><br><br><br>
+      <a href="#form" class="btn-main btn-lg mt-3">Daftar Sekarang</a>
+    </div>
+  </section>
+
+  <!-- Benefit -->
+  <section class="benefit text-center">
+    <div class="container">
+      <h2>Mengapa Memilih Kami?</h2>
+      <div class="row mt-4">
+        <div class="col-md-4">
+          <div class="b-ic">⭐</div>
+          <p>Hewan beragam dan edukatif</p>
+        </div>
+        <div class="col-md-4">
+          <div class="b-ic">🌳</div>
+          <p>Lingkungan asri dan rindang</p>
+        </div>
+        <div class="col-md-4">
+          <div class="b-ic">🎉</div>
+          <p>Tempat rekreasi keluarga favorit</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimoni -->
+  <section class="testi text-center">
+    <div class="container">
+      <h2>Review Pengunjung</h2>
+      <div class="row mt-4">
+
+        <div class="col-md-4 mb-4">
+          <div class="card p-3 h-100 shadow-sm text-start">
+            <strong>Dhita Fiday</strong>
+            <div class="text-warning mb-2">★★★★★</div>
+            <p class="review-text">
+              Semakin lebih baik yaa Pas ke sini weekend tapi tidak terlalu ramai, rindang juga di luar sana. Saya parkir di Joyoboyo, beli
+               tiket di lantai 2 ada informasinya kok lokasi pembelian tiketnya. Tiketnya bisa cash dan QRIS dengan harga Rp15k/orang di 
+               atas 85cm. Habis beli tiket nanti diarahkan lewat tunel. Tunelnya bersih, dingin, cantik, banyak hiasan dindingnya. Dari 
+               tunel langsung sampai pintu masuk dan keluar KBS.
+            </p>
+            <a href="#" class="read-more">Selengkapnya</a>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+          <div class="card p-3 h-100 shadow-sm text-start">
+            <strong>Fannilla Latte</strong>
+            <div class="text-warning mb-2">★★★★★</div>
+            <p class="review-text">
+              Randomly kesini karena penasaran sama yg lorong viral di tiktok itu. Bagus loh, ga sepanas dan sebau dulu. Tapi masuk parkirnya
+               agak ribet, harus puter balik duluu. Hewan2nya kurang lengkap tapi ya oke lah 😂 Aku ambil paket C - sekitar 35an (paket sama 
+               kids zoo + GIZ Park) ga worth it si GIZ Parknya tutup malah dibuat tempat tidur sama org2, kidz zoo ok lah buat anak2 kasi 
+               makan hewan, buat aku sih ya biasa aja. Parkir mobil around 10k
+            </p>
+            <a href="#" class="read-more">Selengkapnya</a>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+          <div class="card p-3 h-100 shadow-sm text-start">
+            <strong>Egar Anggarida</strong>
+            <div class="text-warning mb-2">★★★★☆</div>
+            <p class="review-text">
+              Kebun Binatang Surabaya yang menjadi Salah satu Tempat wisata yang paling popular di Surabaya sejak dlu kalau sampai sekarang.
+              Inovasi Dan pembangunan jalan terus, tak pernah bosen ketika berkunjung kesekian kalinya.
+              Salah satu Tempat favorit mengajak saudara Dan Keluarga yang berkunjung Dari luar kota
+            </p>
+            <a href="#" class="read-more">Selengkapnya</a>
+          </div>
+        </div>
+      </div>
+      <div class="mt-4">
+        <a href="https://www.google.com/maps/place/Kebun+Binatang+Surabaya+%2F+Surabaya+Zoo/@-7.2961959,112.7340804,17z/data=!4m8!3m7!1s0x2dd7fb97917c2fad:0x21b1122d5fe174cc!8m2!3d-7.2961959!4d112.7366553!9m1!1b1!16s%2Fm%2F0j51vc7?entry=ttu&g_ep=EgoyMDI1MDkyNC4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn-main btn-lg">
+          Review Lainnya
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Detail -->
+  <section class="detail container">
+    <h2 class="text-center">Detail Produk</h2>
+    <div class="row mt-4 align-items-center">
+      <div class="col-md-6">
+        <img src="https://via.placeholder.com/400x250" class="img-fluid" alt="Produk">
+      </div>
+      <div class="col-md-6">
+        <p>Deskripsi singkat tentang produk/jasa yang ditawarkan, termasuk manfaat utama.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Offer -->
+  <section class="offer text-center">
+    <div class="container">
+      <h2>Promo Spesial</h2>
+      <p>Dapatkan diskon </p>
+      <a href="#form" class="btn-main btn-lg">Ambil Sekarang</a>
+    </div>
+  </section>
+
+  <!-- Form -->
+  <section id="form" class="form">
+    <div class="container">
+      <h2 class="text-center">Dapatkan Akses</h2>
+      <form class="mx-auto mt-4" style="max-width:400px;">
+        <div class="mb-3">
+          <input type="text" class="form-control" placeholder="Nama">
+        </div>
+        <div class="mb-3">
+          <input type="email" class="form-control" placeholder="Email">
+        </div>
+        <div class="mb-3">
+          <input type="tel" class="form-control" placeholder="Nomor HP">
+        </div>
+        <button type="submit" class="btn-main w-100">Kirim</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq py-5">
+    <div class="container">
+      <h2 class="text-center">FAQ</h2>
+      <div class="accordion mt-4" id="faqAcc">
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#q1">
+              Buka hari apa saja?
+            </button>
+          </h2>
+          <div id="q1" class="accordion-collapse collapse show" data-bs-parent="#faqAcc">
+            <div class="accordion-body">Buka setiap hari pukul 08.00 - 16.00 WIB</div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q2">
+              Apakah boleh menggelar tikar?
+            </button>
+          </h2>
+          <div id="q2" class="accordion-collapse collapse" data-bs-parent="#faqAcc">
+            <div class="accordion-body">Tidak boleh menggelar tikar dan berkerumun di area KBS</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center">
+    <p>Kontak : kbs@gmail.com | +62 812 3456 7890</p>
+    <p>
+      <a href="#">FB</a> |
+      <a href="#">IG</a> |
+      <a href="#">X</a>
+    </p>
+    <p>© 2025 Kebun Binatang Surabaya</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.querySelectorAll('.read-more').forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.preventDefault();
+        const text = btn.previousElementSibling;
+        text.classList.toggle('expanded');
+        btn.textContent = text.classList.contains('expanded') ? "Sembunyikan" : "Selengkapnya";
+      });
+    });
+  </script>
+</body>
+</html>
