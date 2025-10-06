@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Without Reload</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body class="bg-light p-4">
+
+<div class="container mt-5">
+    <h3 class="mb-4">Contact Form (Without Page Reload)</h3>
+
+    <form id="ContactForm" method="post">
+        <div class="form-group mb-3">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter your name">
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="email">Email Address:</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter your email">
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="message">Message:</label>
+            <textarea id="message" class="form-control" rows="4" placeholder="Your message..."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+    <div class="message_box mt-3"></div>
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+    $("#ContactForm").on("submit", function(e) {
+        e.preventDefault();
+        let name = $("#name").val().trim();
+        let email = $("#email").val().trim();
+        let message = $("#message").val().trim();
+
+        if (name === "") {
+            $(".message_box").html("<span class='text-danger'>Enter your name!</span>");
+            $("#name").focus();
+            return;
+        }
+        if (email === "") {
+            $(".message_box").html("<span class='text-danger'>Enter your email address!</span>");
+            $("#email").focus();
+            return;
+        }
+        if (!isValidEmail(email)) {
+            $(".message_box").html("<span class='text-danger'>Invalid email address!</span>");
+            $("#email").focus();
+            return;
+        }
+        if (message === "") {
+            $(".message_box").html("<span class='text-danger'>Enter your message!</span>");
+            $("#message").focus();
+            return;
+        }
+
+        $.ajax({
+            type: "POST",
+            url: "ajax.php",
+            data: { name: name, email: email, message: message },
+            beforeSend: function() {
+                $(".message_box").html("<img src='Loader.gif' width='25' height='25'> Sending...");
+            },
+            success: function(response) {
+                $(".message_box").html(response);
+                $("#ContactForm")[0].reset();
+            },
+            error: function() {
+                $(".message_box").html("<span class='text-danger'>An error occurred. Please try again.</span>");
+            }
+        });
+    });
+
+    function isValidEmail(email) {
+        const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return pattern.test(email);
+    }
+});
+</script>
+</body>
+</html>
