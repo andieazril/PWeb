@@ -130,11 +130,11 @@
                   encode: true
               })
               .done(function(data) {
-                  $('#responseMessage').html("<p class='text-success mt-3'>Terima kasih sudah menghubungi kami.</p>");
+                  $('#responseMessage').html("<p class='text-success mt-3'>Thank you for contacting us, we will get back to you shortly.</p>");
                   $('#contactForm')[0].reset();
               })
               .fail(function(data) {
-                  $('#responseMessage').html("<p class='text-danger mt-3'>Terjadi error, Silahkan coba lagi.</p>");
+                  $('#responseMessage').html("<p class='text-danger mt-3'>Sorry! Your form submission is failed.</p>");
               })
               .always(function() {
                   submitButton.html(originalButtonHtml);
