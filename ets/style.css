@@ -1,0 +1,98 @@
+    body { 
+    font-family: 'Roboto', sans-serif;
+    background-color: #fdfdf8;
+    }
+
+    h2, h3 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      color: #188cf1;
+    }
+
+    nav {
+      background-color: #066ec9ea;
+      font-weight: 500;
+      color: #fff;
+    }
+
+    nav .nav-link {
+      color: #fff;
+      font-weight: 500;
+    }
+
+    .header {
+      position: relative;
+      height: 300px; 
+      background: url('header.png') no-repeat center center/cover;
+    }
+    
+    .header .container {
+      position: relative;
+    }
+
+    .benefit, .testi, .detail, .offer, .form, .faq {
+      background: #f7c6c6a6; 
+      padding: 60px 20px;
+    }
+    .b-ic { font-size: 40px; color: #066ec9ea; }
+
+    .card { border: none; border-radius: 12px; }
+    .card b { font-family: 'Poppins', sans-serif; }
+
+    .review-text {
+      text-align: justify;
+      max-height: 90px; 
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    
+    .review-text.expanded { max-height: none; }
+    .read-more {
+      font-size: 0.9rem;
+      text-decoration: none;
+      color: #066ec9ea; 
+      cursor: pointer;
+      font-weight: 500;
+    }
+
+    .accordion-button {
+       background: #ffffff; 
+      color: #066ec9ea; 
+      font-weight: 600;
+    }
+    .accordion-button:not(.collapsed) {
+      background: #e2e2e2; 
+      color: #066ec9ea; 
+    }
+    .accordion-body { background-color: #f1f8f1; }
+
+    .btn-main {
+      background-color: #066ec9ea; 
+      color: #fff;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 24px;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-main:hover {
+      background-color: #0359a4; 
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      color: #fff;
+    }
+
+    footer {
+      background:  #000000; 
+      color: #fff; 
+      padding: 30px 10px;
+    }
+
+    .carousel-inner img {
+      border: 10px solid #fff;
+      height: 350px;
+      width: 100%;
+      object-fit: cover; 
+      border-radius: 10px;
+    }
